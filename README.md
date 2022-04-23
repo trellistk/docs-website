@@ -25,9 +25,27 @@ Instructions for setting up code to run Docs-Website.
 Steps
 
 - Git Repo Clone
+  - HTTPS
+
+    ```bash
+    git clone https://github.com/trellistk/docs-website.git
+    ```
+  - SSH
+   
+    ```bash
+    git clone git@github.com:trellistk/docs-website.git
+    ```
+
 - Serverless Framework Setup
+
+    ```bash
+    npm install serverless -g
+    ```
+
 - Dev Environment Setup
-  
+    ```bash
+    npm i
+    ```
 ### Contribute
 
 Please reach out to current contributors on instructions on how to contribute to the docs-website repository.
