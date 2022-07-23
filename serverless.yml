@@ -5,6 +5,7 @@ frameworkVersion: '3'
 provider:
   name: aws
   runtime: nodejs14.x
+  region: ${env:AWS_DEFAULT_REGION, 'us-east-1'}
 
 plugins:
   - serverless-offline
