@@ -6,6 +6,13 @@ provider:
   name: aws
   runtime: nodejs14.x
 
+plugins:
+  - serverless-offline
+
 functions:
-  hello:
-    handler: handler.hello
+  index:
+    handler: src/functions/index.index
+    events:
+      - http:
+          method: get
+          path: /

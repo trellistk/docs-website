@@ -1,0 +1,34 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+    - master
+
+jobs:
+  deploy:
+    name: Build and deploy master
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v1
+
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
+
+    - name: Install API Dependecies
+      run: npm i
+
+    - name: Package for dev
+      uses: serverless/github-action@master
+      with:
+        args: package --stage dev
+
+    - name: Deploy to stage
+      uses: serverless/github-action@master
+      with:
+        args: deploy --package .serverless --stage dev --force
