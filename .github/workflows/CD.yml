@@ -24,14 +24,20 @@ jobs:
     - name: Install API Dependecies
       run: npm i
 
-    - name: serverless deploy
-      uses: serverless/github-action@v3.1
-      with:
-        args: deploy --stage prod
-      env:
-        aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+    - name: Install Serverless Framework
+        run: npm install -g serverless
+
+    - name: Run deploy script
+        run: npm run deploy
+
+    # - name: serverless deploy
+    #   uses: serverless/github-action@v3.1
+    #   with:
+    #     args: deploy --stage prod
+    #   env:
+    #     aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
+    #     aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+    #     aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
     
 
     # - name: Package for prod
