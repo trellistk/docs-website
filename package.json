@@ -1,13 +1,13 @@
 {
   "name": "docs-website",
   "version": "1.0.0",
-  "description": "<!-- title: 'AWS NodeJS Example' description: 'This template demonstrates how to deploy a NodeJS function running on AWS Lambda using the traditional Serverless Framework.' layout: Doc framework: v3 platform: AWS language: nodeJS priority: 1 authorLink: 'https://github.com/serverless' authorName: 'Serverless, inc.' authorAvatar: 'https://avatars1.githubusercontent.com/u/13742415?s=200&v=4' -->",
+  "description": "Trellis Toolkit official documentation site.",
   "main": "handler.js",
   "scripts": {
     "lint": "standard",
     "test": "tape 'tests/*.js'",
     "start:local": "IS_OFFLINE=true sls offline start",
-    "deploy": "sls package --stage prod && sls deploy --package .serverless --stage prod --force"
+    "deploy": "sls package --stage prod && sls deploy --package .serverless --stage prod --force --region 'us-east-1'"
   },
   "repository": {
     "type": "git",
