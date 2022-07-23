@@ -6,7 +6,8 @@
   "scripts": {
     "lint": "standard",
     "test": "tape 'tests/*.js'",
-    "start:local": "IS_OFFLINE=true sls offline start"
+    "start:local": "IS_OFFLINE=true sls offline start",
+    "deploy": "sls package --stage prod && sls deploy --package .serverless --stage prod --force"
   },
   "repository": {
     "type": "git",
